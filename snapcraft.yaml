@@ -1,16 +1,8 @@
-name: tmnationsforever
-version: '2.11.26'
-summary: TrackMania Nations Forever
+name: jmc
+version: '3.6.10'
+summary: Jaba MUD Client
 description: |
- The most popular online PC racing game. It fuels 7 different racing
- environments; hundreds of thousands of tracks and millions of players to
- compete with. You can download the car you are dreaming of, paint it, drive it
- through insane tracks made of loopings, ramps and off roads. It is all about
- you, your driving skills and the track in front of you.
- .
- Just to make sure we understand each other: this is pure arcade driving
- madness.
-
+  Jaba MUD Client is powerful client for playing MUDs
 grade: stable
 confinement: strict
 architectures:
@@ -19,43 +11,45 @@ architectures:
 base: core
 
 apps:
-  tmnationsforever:
-    command: bin/sommelier "$WINEPREFIX/drive_c/Program Files/TmNationsForever/TmForever.exe"
+  jmc:
+    command: bin/sommelier "$WINEPREFIX/drive_c/jmc3610/jmc.exe"
     environment:
       WINEPREFIX: "$SNAP_USER_COMMON/.wine"
       DLLOVERRIDES: "mscoree,mshtml=" # Prevent pop-ups about Wine Mono and Wine Gecko
-      INSTALL_URL: "http://files.trackmaniaforever.com/tmnationsforever_setup.exe"
-      VIRTDESKTOP: 1
+      INSTALL_URL: "https://github.com/nerevar/jmc/raw/gh-pages/releases/jmc3610.zip"
+      TRICKS: "mfc42"
+      #VIRTDESKTOP: 1
       LC_ALL: "C.UTF-8"
     plugs:
       - desktop
       - desktop-legacy
-      - hardware-observe
+      #- hardware-observe
       - home
-      - joystick
+      #- joystick
       - network
       - network-bind
-      - opengl
+      #- opengl
       - pulseaudio
       - wayland
       - x11
   launcher:
-    command: bin/sommelier "$WINEPREFIX/drive_c/Program Files/TmNationsForever/TmForeverLauncher.exe"
+    command: bin/sommelier "$WINEPREFIX/drive_c/jmc3610/jmc.exe"
     environment:
       WINEPREFIX: "$SNAP_USER_COMMON/.wine"
       DLLOVERRIDES: "mscoree,mshtml=" # Prevent pop-ups about Wine Mono and Wine Gecko
-      INSTALL_URL: "http://files.trackmaniaforever.com/tmnationsforever_setup.exe"
-      VIRTDESKTOP: 1
+      INSTALL_URL: "https://github.com/nerevar/jmc/raw/gh-pages/releases/jmc3610.zip"
+      TRICKS: "mfc42"
+      #VIRTDESKTOP: 1
       LC_ALL: "C.UTF-8"
     plugs:
       - desktop
       - desktop-legacy
-      - hardware-observe
+      #- hardware-observe
       - home
-      - joystick
+      #- joystick
       - network
       - network-bind
-      - opengl
+      #- opengl
       - pulseaudio
       - wayland
       - x11
@@ -111,6 +105,7 @@ parts:
     build-packages:
       - dpkg
       - wget
+      - unzip
     override-build: |
       snapcraftctl build
 
