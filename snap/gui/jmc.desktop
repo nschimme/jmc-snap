@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=jmc
+Comment=Jaba MUD Client
+Exec=jmc
+Icon=${SNAP}/meta/gui/jmc.png
+Categories=Game;
+Terminal=false
+StartupNotify=true
+StartupWMClass=jmc.exe
+Keywords=game
